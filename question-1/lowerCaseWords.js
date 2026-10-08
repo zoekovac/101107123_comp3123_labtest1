@@ -35,7 +35,7 @@ function lowerCaseWords(mixedArray) {
         }
 
         resolve(wordsInArray);
-    }
+    });
 }
 
 lowerCaseWords(mixedArray)
