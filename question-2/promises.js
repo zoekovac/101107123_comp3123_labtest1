@@ -2,7 +2,17 @@
   QUESTION 2
 ----------------------------------------------------------------------------------------------------------------------*/
 
-// Create a method resolvedPromise that is similar to delayedSuccess and resolves a message after a timeout of 500ms
+// resolvedPromise resolves a message after a timeout of 500ms
+const resolvedPromise = () => {
+
+    return new Promise((resolve) => {
+
+        setTimeout(() => {
+            const success = { message: 'delayed success!' };
+            resolve(success);
+        }, 500);
+    });
+};
 
 // Create a method rejectedPromise that is similar to delayedException and rejects an error message after a timeout of 500ms
 
