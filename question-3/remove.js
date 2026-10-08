@@ -15,14 +15,12 @@ if (fs.existsSync(logsDirectory)) {
     // Output the file names to delete
     files.forEach((file) => {
         console.log(`delete files...${file}`);
-
         fs.unlinkSync(path.join(logsDirectory, file));
     });
 
     // Remove the Logs directory
     fs.rmdirSync(logsDirectory);
 
-}
-else {
+} else {
     console.log('Logs directory does not exist.');
 }

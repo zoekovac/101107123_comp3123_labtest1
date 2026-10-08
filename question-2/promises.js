@@ -20,9 +20,7 @@ resolvedPromise()
 
 // rejectedPromise rejects an error message after a timeout of 500ms
 const rejectedPromise = () => {
-
     return new Promise((resolve, reject) => {
-
         setTimeout(() => {
             try {
                 throw new Error('delayed exception!');
