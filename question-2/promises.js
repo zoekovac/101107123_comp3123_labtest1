@@ -14,6 +14,10 @@ const resolvedPromise = () => {
     });
 };
 
+resolvedPromise()
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+
 // Create a method rejectedPromise that is similar to delayedException and rejects an error message after a timeout of 500ms
 
 // Call both promises separately and handle the resolved and reject results and then output to the console
