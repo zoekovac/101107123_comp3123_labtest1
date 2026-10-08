@@ -2,11 +2,27 @@
   QUESTION 3 – PART 2
 ----------------------------------------------------------------------------------------------------------------------*/
 
-// Create a script that will do the following:
+const fs = require('fs');
+const path = require('path');
 
-// Remove Log files
+// Process current working directory to build directory path
+const logsDirectory = path.join(process.cwd(), 'Logs')
+
 // Remove all the files from the Logs directory, if exists
-// Output the file names to delete
-// Remove the Logs directory
+if (fs.existsSync(logsDirectory)) {
+    const files = fs.readdirSync(logsDirectory);
 
-// Hint: use the fs module and path module, and the process current working directory to build directory path
+    // Output the file names to delete
+    files.forEach((file) => {
+        console.log(`delete files...${file}`);
+
+        fs.unlinkSync(path.join(logsDirectory, file));
+    });
+
+    // Remove the Logs directory
+    fs.rmdirSync(logsDirectory);
+
+}
+else {
+    console.log('Logs directory does not exist.');
+}

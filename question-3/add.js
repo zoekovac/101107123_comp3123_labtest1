@@ -2,11 +2,25 @@
   QUESTION 3 – PART 1
 ----------------------------------------------------------------------------------------------------------------------*/
 
-// Create a script that will do the following:
+const fs = require('fs');
+const path = require('path');
+
+// Process current working directory to build directory path
+const logsDirectory = path.join(process.cwd(), 'Logs');
 
 // Create a Logs directory, if it does not exist
-// Change the current process to the new Logs directory
-// Create 10 log files and write some text into the file
-// Output the files names to console
+if (!fs.existsSync(logsDirectory)) {
+    fs.mkdirSync(logsDirectory);
+}
 
-// Hint: use the fs module and path module, and the process current working directory to build directory path
+// Change the current process to the new Logs directory
+process.chdir(logsDirectory);
+
+// Create 10 log files and write some text into the file
+for (let i = 0; i < 10; i++) {
+    const fileName = `log${i}.txt`;
+    fs.writeFileSync(path.join(process.cwd(), fileName), `Log file ${i}`);
+
+    // Output the files names to console
+    console.log(fileName);
+}
