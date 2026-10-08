@@ -18,6 +18,21 @@ resolvedPromise()
     .then((result) => console.log(result))
     .catch((error) => console.error(error));
 
-// Create a method rejectedPromise that is similar to delayedException and rejects an error message after a timeout of 500ms
+// rejectedPromise rejects an error message after a timeout of 500ms
+const rejectedPromise = () => {
 
-// Call both promises separately and handle the resolved and reject results and then output to the console
+    return new Promise((resolve, reject) => {
+
+        setTimeout(() => {
+            try {
+                throw new Error('delayed exception!');
+            } catch (e) {
+                reject({ error: e.message });
+            }
+        }, 500);
+    });
+};
+
+rejectedPromise()
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
